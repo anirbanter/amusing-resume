@@ -1,0 +1,77 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: #f4f4f9;
+  color: #333;
+}
+
+.container {
+  width: 80%;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background: #1e293b;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+header .profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+header nav a {
+  margin: 0 15px;
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  color: #38bdf8;
+}
+
+/* Sections */
+section {
+  margin: 40px 0;
+}
+
+h2 {
+  margin-bottom: 15px;
+  color: #1e293b;
+  border-bottom: 2px solid #38bdf8;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1e293b;
+  color: white;
+  margin-top: 40px;
+}
