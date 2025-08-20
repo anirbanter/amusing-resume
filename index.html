@@ -3,70 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anirban Ghosh - Resume</title>
+  <title>Anirban's Resume</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Header -->
-  <header>
-    <div class="container">
-      <img src="assets/profile.jpg" alt="Profile Photo" class="profile-pic">
-      <h1>Anirban Ghosh</h1>
-      <p>Data Analyst | Cloud Solutions | Product Management Aspirant</p>
-      <nav>
+<header>
+  <div class="container full-header-content">
+    <img src="assets/profile.jpg" alt="Profile Photo" class="profile-pic large-pic" />
+    <h1 class="full-name">Anirban Ghosh</h1>
+    <h3 class="full-title" style="margin-bottom: 0px; color: #ffffff;">Aspiring Product Manager</h3>
+    <p class="full-tagline">Data Analyst | Business Development Consultant | Software Developer</p>
+    <nav class="full-nav">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#co-curriculars">Co-Curriculars</a>
+      <a href="#skills">Skills</a>
+      <a href="#interests">Interests</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <!-- NEW TASK: if i click on About in NavBar while i scroll down then it goes to big header page, can't read the about section -->
+
+  <div class="container small-header-content">
+    <img src="assets/profile.jpg" alt="Profile Photo" class="profile-pic small-pic" />
+    <div class="header-content">
+      <div class="header-title"> Anirban | Aspiring PM </div>
+      <nav class="small-nav">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
-        <a href="#activities">Activities</a>
+        <a href="#co-curriculars">Co-Curriculars</a>
         <a href="#skills">Skills</a>
+        <a href="#interests">Interests</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
-  </header>
+  </div>
+
+  <!-- 🌗 Intuitive theme toggle button -->
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle light and dark theme">🌙</button>
+</header>
 
   <!-- Sections (About, Experience, Education, Activities, Skills, Contact, Footer) -->
    <!-- About Section -->
   <section id="about" class="container">
     <h2>About Me</h2>
     <p>
-      I am a final-year Information Systems undergraduate at Singapore Management University, specializing in
-      Business Analytics and Digitalisation & Cloud Solutions. With experience in data analysis, cloud technologies,
-      and stakeholder engagement, I am passionate about leveraging data to solve real-world problems and create
-      scalable, impactful solutions.
+      I am a recent graduate from Singapore Management University with a <b>Bachelor of Science in Information Systems</b>, specializing in 
+      <i><b>Business Analytics</b></i> and <i><b>Digitalisation & Cloud Solutions</b></i>. Through various internships and work experiences, I have developed a hands-on understanding
+      of how data, stakeholder needs, and process automation overlap to shape meaningful technology solutions. Consequently, I am equipped with strong 
+      technical capabilities, a collaborative spirit, and a deep interest in creating and managing impactful digital products.
     </p>
   </section>
 
   <!-- Experience Section -->
   <section id="experience" class="container">
     <h2>Relevant Experience</h2>
-    <ul>
-      <li>
-        <h3>Data Analyst Intern – Veeva Systems (Jul 2024 – Dec 2024)</h3>
-        <p>Analyzed large datasets (6,000+ rows) for matching projects, generated reports for pre-sales, and built automation scripts to improve Open Data workflows. Used Jira and GitLab for collaboration.</p>
-      </li>
-      <li>
-        <h3>Research Assistant – Cooling Singapore (Jun 2023 – Aug 2024)</h3>
-        <p>Automated CSV and chart generation from raw data using RStudio, Pandas, NumPy, and Matplotlib, reducing reporting time by ~3 hours. Compiled a literature review of 600+ articles.</p>
-      </li>
-      <li>
-        <h3>Business Development Intern – Centre for Liveable Cities (Oct 2023 – Dec 2023)</h3>
-        <p>Created a CRM portal, collaborated on use cases, and automated generation of 200+ customized letters with VBA, saving multiple hours of work. Coordinated with external stakeholders for WCS 2024.</p>
-      </li>
-    </ul>
+
+    <div class="experience-item">
+      <div class="experience-header">
+        <span class="role">Data Analyst Intern – Veeva Systems</span>
+        <span class="date">Jul 2024 – Dec 2024</span>
+      </div>
+      <p>
+        Analyzed large datasets (6,000+ rows) for matching projects, generated reports for pre-sales, 
+        and built automation scripts to improve Open Data workflows. Used Jira and GitLab for collaboration.
+      </p>
+    </div>
+
+    <div class="experience-item">
+      <div class="experience-header">
+        <span class="role">Research Assistant – Cooling Singapore</span>
+        <span class="date">Jun 2023 – Aug 2024</span>
+      </div>
+      <p>
+        Automated CSV and chart generation from raw data using RStudio, Pandas, NumPy, and Matplotlib, 
+        reducing reporting time by ~3 hours. Compiled a literature review of 600+ articles.
+      </p>
+    </div>
+
+    <div class="experience-item">
+      <div class="experience-header">
+        <span class="role">Business Development Intern – Centre for Liveable Cities</span>
+        <span class="date">Oct 2023 – Dec 2023</span>
+      </div>
+      <p>
+        Created a CRM portal, collaborated on use cases, and automated generation of 200+ customized letters 
+        with VBA, saving multiple hours of work. Coordinated with external stakeholders for WCS 2024.
+      </p>
+    </div>
   </section>
 
   <!-- Education Section -->
+  <!-- NEW TASK: FIND A WAY TO STORE WHICH USERS CLICKED ON MY HYPERLINKS SO I CAN STORE THEIR IP ADDRESSES OR CLICKED DATE-->
   <section id="education" class="container">
     <h2>Education</h2>
-    <p><strong>Singapore Management University</strong> – Bachelor of Science (Information Systems), Aug 2021 – May 2025<br>
-      Tracks: Business Analytics, Digitalisation & Cloud Solutions
-    </p>
+    <div class="education-item">
+      <div class="education-header">
+        <span class="degree">Bachelor of Science (Information Systems)</span>
+        <span class="date">Aug 2021 – May 2025</span>
+      </div>
+      <p>
+        <strong>Singapore Management University</strong><br>
+        Tracks: Business Analytics, Digitalisation & Cloud Solutions <br>
+        <i>Graduated with
+          <!-- Hyperlink to Merit certificate PDF -->
+          <a href="assets/Degree Cert_Merit in IS.pdf" target="_blank" rel="noopener noreferrer">
+            Merit
+          </a>
+        </i>
+      </p>
+    </div>
+    <div class="education-item">
+      <div class="education-header">
+        <span class="degree">GCE A-Level, Science Stream</span>
+        <span class="date">Feb 2017 – Dec 2018</span>
+      </div>
+      <p>
+        <strong>Anglo-Chinese Junior College</strong><br>
+        <i>81.25/90 Rank points 
+        <!-- Hyperlink to JC certificate image -->
+        <a href="assets/A_Level_Cert.jpg" target="_blank" rel="noopener noreferrer">
+          (2 Distinctions)
+        </a>
+        </i>
+      </p>
+    </div>
   </section>
 
   <!-- Activities Section -->
-  <section id="activities" class="container">
-    <h2>Academic & Co-Curricular Activities</h2>
+  <section id="co-curriculars" class="container">
+    <h2>Certifications & Co-Curricular Activities</h2>
     <ul>
+            <!-- I have also attained the Oracle Java Foundations Associate certification! How do I present this and also use showcase
+       simple java skills and principles in the coding of this website/section (I think i should create a navigation to another page and 
+       showcase the simple jaca principles or show what i can do with objects craeted)-->
+
       <li>
         <h3>Team Lead – SMU Metamorphosis Orientation Camp (May 2022 – Aug 2022)</h3>
         <p>Led a team of 21 facilitators, planned orientation activities for 80 freshmen, and coordinated with departments for logistics and execution.</p>
@@ -75,30 +150,122 @@
         <h3>Course Participant – AI200 Applied Machine Learning, Heicoders Academy (Dec 2021)</h3>
         <p>Built models for diabetes prediction using decision trees, logistic regression, ANN, and ensemble methods, achieving 73% accuracy and 82% sensitivity.</p>
       </li>
+
+      <!-- Add stuff about army experience -->
+       <!-- Lieutenant in the Singapore Armed Forces	BMTC, Pulau Tekong
+        School 2 Administrative Officer	Apr 2019 - May 2021
+        •	Planned and directed administrative functions for NSmen and regulars to meet School-level KPI
+        •	Coordinated with company commanders to facilitate events across 7 companies
+        •	Communicated with external parties to get approval for public events -->
+
+
+      <!-- Add stuff about volunteering at Foodbank -->
+
+
     </ul>
   </section>
 
   <!-- Skills Section -->
   <section id="skills" class="container">
-    <h2>Additional Information</h2>
+    <h2>Additional Information (Skills)</h2>
     <ul>
       <li><strong>Tools:</strong> Jira, GitLab</li>
       <li><strong>Programming & Web:</strong> Python, Flask, HTML, PHP, MySQL, Vue.js, JavaScript, Firebase Auth, Pinia</li>
       <li><strong>Data Analytics:</strong> Pandas, NumPy, Matplotlib, Keras, RStudio</li>
-      <li><strong>Languages:</strong> English (fluent), Hindi (fluent), Bengali, Spanish, Italian</li>
-      <li><strong>Interests:</strong> Tennis, Cycling, Photography</li>
+
+      <li><strong>Familiarity with AI:</strong> Worked with ChatGPT, Claude, Gemini, Copilot, Perplexity, Google Agent(for SMU AI&Humanity Module), Telegram bots</li>
+
+      <!-- want to add info about NS and volunteering at Foodbank here? from Oct 2024 to April 2025 -->
+<!-- I have another file for foodbank nonsense - foodbank.txt -->
     </ul>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="container">
-    <h2>Contact</h2>
-    <p>📞 +65 8940 3454</p>
-    <!-- <p>✉️ <a href="mailto:anirbang.2021@scis.smu.edu.sg">anirbang.2021@scis.smu.edu.sg</a></p> -->
-    <p>✉️ <a href="mailto:anirban.g.work@gmail.com">anirban.g.work@gmail.com</a></p>
-    <p>🔗 <a href="https://www.linkedin.com/in/anirbanghoshwork" target="_blank">LinkedIn</a></p>
-    <p>📄 <a href="assets/AnirbanGhosh_Resume.pdf" target="_blank">Download Resume (PDF)</a></p>
+  <!-- Hobbies Section -->
+  <section id="interests" class="container">
+    <h2>Interests & Hobbies</h2>
+    
+    <div class="interest-group">
+      <h3>🎾 Sports</h3>
+      <p>Tennis, Hockey, Golf, Badminton</p>
+    </div>
+    
+    <div class="interest-group">
+      <h3>🗣️ Languages Spoken</h3>
+      <div class="languages-wrapper">
+        <div class="language-category">
+          <h4>Proficiently</h4>
+          <ul>
+            <li>English</li>
+            <li>Hindi</li>
+            <li>Bengali</li>
+          </ul>
+        </div>
+        <div class="language-category">
+          <h4>Beginner Level</h4>
+          <ul>
+            <li>Spanish</li>
+            <li>Italian</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- I wanna check my spotify - is there a way to do my own spotify wrapped using my own coding and data analytics to see which artists and genres i like most?? -->
+    <div class="interest-group">
+      <h3>🎶 Favourite Music Genres</h3>
+      <p>Hip-hop, Afrobeats, Pop, etc.</p>
+    </div>
+    
+    <div class="interest-group">
+      <h3>🌏 Places Travelled</h3>
+      <!-- can make a dynamic moving diagram with plane flying here to there -->
+      <p>
+        Singapore, Malaysia (Johor Bahru, Kuala Lumpur), Vietnam (Da Nang, Ho Chi Minh, Hanoi), Thailand (Bangkok),
+        India (Kolkata)
+      </p>
+    </div>
+    
+    <div class="interest-group">
+      <h3>🎬 Other Interests</h3>
+      <p>📷 Photography, 🎥 Video Editing, 🃏 Card games (Bridge, Tai Tee, Gin Rummy, etc.)</p>
+      <!-- Link to my youtube account where i can add videos I've created using davinci resolve -->
+    </div>
+    <!-- Create another page where I have a carousell of pictures of me and family and loved ones. This page can include my hobbies and places travelled etc. -->
   </section>
+
+
+
+  <!-- Contact Section -->
+   <!-- Future task: Experiment with using SVG icons cuz
+    1. SVG icons are vector graphics, so they stay crisp and scalable on all screen sizes and resolutions.
+    2. Icons use stroke="currentColor" or fill="currentColor" so CSS color controls their color, adapting with theme.
+    3. The icons sit neatly before the info text, spaced with gap.
+    4. Hover effect highlights the entire card and changes link color for better interactivity. 
+    -->
+  <section id="contact" class="container">
+    <h2>Contact Me!</h2>
+    <div class="contact-list">
+      <div class="contact-card">
+        <span class="icon">📞</span>
+        <span class="info">+65 8940 3454</span>
+      </div>
+      <div class="contact-card">
+        <span class="icon">✉️</span>
+        <a class="info" href="mailto:anirban.g.work@gmail.com">anirban.g.work@gmail.com</a>
+      </div>
+      <div class="contact-card">
+        <span class="icon">🔗</span>
+        <a class="info" href="https://www.linkedin.com/in/anirbanghoshwork" target="_blank">Check out my LinkedIn</a>
+      </div>
+      <div class="contact-card">
+        <span class="icon">📄</span>
+        <a class="info" href="assets/AnirbanGhosh_Resume.pdf" target="_blank">Download my Resume/CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Task: Add a scroll to top button or animation to make it easier to go up -->
 
   <footer>
     <p>© 2025 Anirban Ghosh</p>

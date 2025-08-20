@@ -5,13 +5,46 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  background: #f4f4f9;
-  color: #333;
+/* Theme Variables */
+:root {
+  --bg-color: #f4f4f9;
+  --text-color: #333;
+  --section-bg: #f5f5f5;
+  --accent-color: #38bdf8;
+  --header-bg: #1e293b;
+  --header-text: #fff;
+  --heading-color: #1e293b; /* dark blue/gray for light mode */
+  --date-color: #555;
+  --date-color-mobile: #777;
+  --hover-shadow: rgba(0,0,0,0.1);
+  --shadow-light: rgba(0,0,0,0.05);
 }
 
+[data-theme="dark"] {
+  --bg-color: #0f172a;
+  --text-color: #f1f5f9;
+  --section-bg: #1e293b;
+  --accent-color: #38bdf8;
+  --header-bg: #0f172a;
+  --header-text: #f8fafc;
+  --heading-color: #f1f5f9; /* light color for dark mode */
+  --date-color: #bbb;
+  --date-color-mobile: #ccc;
+  --hover-shadow: rgba(56, 189, 248, 0.4);
+  --shadow-light: rgba(0,0,0,0.3);
+}
+
+/* Body & Typography */
+body {
+  padding-top: 30vh; /* ensure main content below fixed header */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: var(--bg-color);
+  color: var(--text-color);
+  text-align: justify;
+}
+
+/* Container */
 .container {
   width: 80%;
   max-width: 900px;
@@ -19,45 +52,234 @@ body {
   padding: 20px;
 }
 
-/* Header */
+/* General header styling */
 header {
-  background: #1e293b;
-  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, var(--header-bg) 0%, #0a101d 100%);
+  color: var(--header-text);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 0 0 24px 24px;
+  z-index: 1000;
+  transition: height 0.5s ease, padding 0.5s ease;
+}
+
+/* Container */
+header.container {
+  width: 80%;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ===== Full Header (default visible) ===== */
+.full-header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
   text-align: center;
-  padding: 40px 20px;
+  padding: 60px 20px;
+  transition: opacity 0.5s ease;
 }
 
-header .profile-pic {
-  width: 120px;
-  height: 120px;
+.full-header-content.hidden {
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+.full-header-content .profile-pic.large-pic {
+  width: 400px;
+  height: 400px;
   border-radius: 50%;
-  margin-bottom: 15px;
+  border: 6px solid var(--accent-color);
+  box-shadow: 0 6px 18px rgba(56, 189, 248, 0.5);
+  object-fit: cover;
+  margin-bottom: 20px;
 }
 
-header nav a {
-  margin: 0 15px;
-  color: #f8fafc;
+.full-header-content h1.full-name {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.full-header-content h3.full-title {
+  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--accent-color);
+  margin-top: 0;
+  margin-bottom: 14px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.full-header-content p.full-tagline {
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  font-size: 1.05rem;
+  max-width: 680px;
+  margin: 0 auto 28px;
+  color: var(--header-text);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.full-header-content nav.full-nav {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.full-header-content nav.full-nav a {
+  color: var(--header-text);
+  font-weight: 700;
+  padding-bottom: 6px;
+  border-bottom: 3px solid transparent;
   text-decoration: none;
-  font-weight: bold;
+  font-size: 1.2rem;
+  transition: color 0.3s, border-bottom 0.3s;
 }
 
-header nav a:hover {
-  color: #38bdf8;
+.full-header-content nav.full-nav a:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
 }
+
+/* ===== Small/Minimized Header (default hidden) ===== */
+.small-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 80px;
+  padding: 0 30px;
+  gap: 30px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  max-width: none;
+
+}
+
+.small-header-content.visible {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.small-header-content .profile-pic.small-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-color);
+  box-shadow: 0 3px 9px rgba(56, 189, 248, 0.5);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.small-header-content .header-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-grow: 1;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.small-header-content .header-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.small-header-content .header-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  white-space: nowrap;
+  color: var(--header-text);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.small-header-content nav.small-nav {
+  display: flex;
+  gap: 20px;
+  white-space: nowrap;
+/* Code below is to ensure all nav links line up in a row and, if on a small device, can be scrolled horizontally. */
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.small-header-content nav.small-nav a {
+  color: var(--header-text);
+  font-weight: 600;
+  padding: 6px 0;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  font-size: 1rem;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.small-header-content nav.small-nav a:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+/* End of Header styling */
+
 
 /* Sections */
 section {
-  margin: 40px 0;
+  scroll-margin-top: 800px; /* space from top when scrolled into view, this is required to add scroll space bfr header overrides about section */
+  margin: 60px auto;
+  padding: 25px 30px 30px;
+  border-radius: 16px;
+  background: var(--section-bg);
+  box-shadow: 0 4px 12px var(--shadow-light);
+  color: var(--text-color);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out,
+              background 0.25s ease,
+              box-shadow 0.2s ease,
+              color 0.25s ease;
 }
 
+/* When section is shown (scrolled into view) */
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover effect only when section is visible */
+section.show:hover {
+  background: var(--bg-color);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px var(--hover-shadow);
+}
+
+/* Create more space between the cards of each section */
+section.container {
+  margin: 30px auto 15px auto;
+}
+
+/* Headings */
 h2 {
   margin-bottom: 15px;
-  color: #1e293b;
-  border-bottom: 2px solid #38bdf8;
+  color: var(--heading-color);
+  border-bottom: 2px solid var(--accent-color);
   display: inline-block;
   padding-bottom: 5px;
+  font-size: 1.8rem;
+  text-align: center;
+  width: 100%;
 }
 
+/* Lists */
 ul {
   list-style: none;
   padding-left: 0;
@@ -71,7 +293,192 @@ ul li {
 footer {
   text-align: center;
   padding: 20px;
-  background: #1e293b;
-  color: white;
+  background: var(--header-bg);
+  color: var(--header-text);
   margin-top: 40px;
+}
+
+/* Experience section */
+#experience {
+  text-align: left;
+}
+
+.experience-item {
+  margin-bottom: 1.5rem;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.role {
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.date { /* This is used by both Experience and Education sections */
+  text-align: right;
+  font-style: italic;
+  color: var(--date-color);
+}
+
+/* Education Section */
+.education-item {
+  margin-bottom: 1.5rem;
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.degree {
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+/* Interests & Hobbies Section */
+.interest-group {
+  margin-bottom: 28px; /* space between categories */
+}
+
+.interest-group h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.interest-group h3::before {
+  font-size: 1.3rem;
+}
+
+.interest-group p {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+
+/* Languages portion in Interests & Hobbies Section */
+.languages-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  margin-left: 10px;
+}
+
+.language-category {
+  background-color: var(--section-bg);
+  border: 1px solid var(--accent-color);
+  border-radius: 10px;
+  padding: 12px 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.language-category h4 {
+  margin-bottom: 8px;
+  font-weight: 500; /* This is how I can make "Proficiently" or "Beginner" bolder or lighter */
+  color: var(--accent-color);
+  font-size: 1.1rem;
+}
+
+.language-category ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.language-category ul li {
+  margin-bottom: 6px;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+/* Contact Me Section */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--section-bg);
+  border-radius: 8px;
+  padding: 12px 18px;
+  box-shadow: 0 2px 8px var(--shadow-light);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.contact-card:hover {
+  background: var(--bg-color);
+  box-shadow: 0 4px 20px var(--hover-shadow);
+}
+
+.contact-card .icon {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  min-width: 28px;
+  text-align: center;
+}
+
+.contact-card .info, .contact-card a.info {
+  color: var(--text-color);
+  font-size: 1.08rem;
+  text-decoration: none;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.contact-card a.info:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .date {
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    color: var(--date-color-mobile);
+  }
+  .education-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Theme Toggle Button positioned top right */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--header-text);
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.15);
+  color: var(--accent-color);
 }

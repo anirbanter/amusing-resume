@@ -21,7 +21,7 @@ const menuButton = document.createElement("button");
 menuButton.textContent = "☰";
 menuButton.className = "menu-toggle";
 
-document.querySelector("header .container")?.prepend(menuButton);
+document.querySelector("header .container")?.append(menuButton);
 
 menuButton.addEventListener("click", () => {
   nav?.classList.toggle("active");
